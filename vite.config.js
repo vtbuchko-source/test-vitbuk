@@ -28,7 +28,7 @@ const __dirname = dirname(__filename);
 
 export default defineConfig({
   root: '.', // project root directory
-  base: '/', // base public path
+  base: './', // base public path
   publicDir: 'public', // directory for static assets
 
   define: {
