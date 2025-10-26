@@ -1,0 +1,12 @@
+import{H as l}from"../vendor/handlebars/Ch5gIePQ.js";import{i as a}from"../vendor/i18next/B81KFYGS.js";import{B as d}from"../vendor/i18next-http-backend/ARZ4GFIw.js";import{B as m}from"../vendor/i18next-browser-languagedetector/Cep12sV3.js";/* empty css                              *//* empty css                               *//* empty css                           */import"../vendor/cross-fetch/DzBBQrnD.js";import"../vendor/source-map/GAHJeAxE.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&s(i)}).observe(document,{childList:!0,subtree:!0});function n(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(e){if(e.ep)return;e.ep=!0;const o=n(e);fetch(e.href,o)}})();const p=`<nav class='flex p-8 bg-stone-900 m-2 rounded-lg shadow-xl justify-between items-center'>
+  <p class='text-orange-200 text-xl'>Logo</p>
+  <ul class='flex gap-2'>
+    {{#each menuItems}}
+      <li>
+        <a class='text-lg' href='{{this.href}}'>
+          <span class='text-orange-100'>{{this.title}}</span>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</nav>`,f="<header></header>",g="<main></main>",h="<footer></footer>",y={nav:p,header:f,main:g,footer:h};a.use(d).use(m).init({fallbackLng:"en",ns:["common"],debug:!0,backend:{loadPath:"/locales/{{lng}}/{{ns}}.json"},detection:{order:["querystring","localStorage","cookie","navigator"],caches:["localStorage","cookie"]}});l.registerHelper("eq",(r,t)=>r===t);const b=r=>({...{lang:a.language,timestamp:Date.now()},...{nav:{menuItems:[{title:"Google",href:"https://www.google.com"},{title:"YouTube",href:"https://www.youtube.com"},{title:"Vite",href:"https://vite.dev"}]},header:{},main:{},footer:{}}[r]||{}}),c=document.getElementById("app");if(!c)console.error('Mount point "#app" not found');else{c.innerHTML="";const r=Object.entries(y).map(([t,n])=>{try{return l.compile(n)(b(t))}catch(s){return console.error(`Failed to render template "${t}"`,s),""}}).join("");c.innerHTML=r}const u=()=>{document.querySelectorAll("[data-lang]").forEach(r=>{const t=r.dataset.lang;t&&(r.textContent=a.t(t))})};a.on("initialized languageChanged",u);u();
