@@ -1,1 +1,12 @@
-<nav></nav>
+<nav class='flex p-8 bg-stone-900 m-2 rounded-lg shadow-xl justify-between items-center'>
+  <p class='text-orange-200 text-xl'>Logo</p>
+  <ul class='flex gap-2'>
+    {{#each menuItems}}
+      <li>
+        <a class='text-lg' href='{{this.href}}'>
+          <span class='text-orange-100'>{{this.title}}</span>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</nav>
